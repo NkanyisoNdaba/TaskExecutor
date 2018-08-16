@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF9885E3-8226-4EE7-9AAE-9B931A23D54D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TaskExecutorNancyApp</RootNamespace>
+    <AssemblyName>TaskExecutorNancyApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Nancy, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.1.4.4\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Hosting.Self, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Hosting.Self.1.4.1\lib\net40\Nancy.Hosting.Self.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TaskExecutor.Nancy.Tests\TaskExecutor.Nancy.Tests.csproj">
+      <Project>{6b0b28b6-84dc-4eec-b503-0e1c5f91bec5}</Project>
+      <Name>TaskExecutor.Nancy.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskExecutor.Nancy\TaskExecutor.Nancy.csproj">
+      <Project>{f916d380-a08e-422f-b995-88494e5ee685}</Project>
+      <Name>TaskExecutor.Nancy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskExecutor.Tests\TaskExecutor.Tests.csproj">
+      <Project>{ad2cf50e-176f-4601-9662-b413b789247b}</Project>
+      <Name>TaskExecutor.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskExecutorApp\TaskExecutorApp.csproj">
+      <Project>{f04f7136-af08-41d3-8f31-d8673db19d80}</Project>
+      <Name>TaskExecutorApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskExecutorBoundry\TaskExecutorBoundry.csproj">
+      <Project>{7a466076-8586-4044-b2bd-045a7d6c2480}</Project>
+      <Name>TaskExecutorBoundry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskExecutor\TaskExecutor.csproj">
+      <Project>{59b26694-7e41-4bc1-9d31-62dcd276d841}</Project>
+      <Name>TaskExecutor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
